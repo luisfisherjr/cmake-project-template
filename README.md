@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/luisfisherjr/cmake-project-template.svg?branch=master)](https://travis-ci.org/luisfisherjr/cmake-project-template)  [![Build Status](https://travis-ci.org/luisfisherjr/cmake-template.svg?branch=master)](https://travis-ci.org/luisfisherjr/cmake-template)  [![codecov](https://codecov.io/gh/luisfisherjr/cmake-project-template/branch/master/graph/badge.svg)](https://codecov.io/gh/luisfisherjr/cmake-project-template)
+[![Build Status](https://travis-ci.org/luisfisherjr/cmake-project-template.svg?branch=master)](https://travis-ci.org/luisfisherjr/cmake-project-template) [![codecov](https://codecov.io/gh/luisfisherjr/cmake-project-template/branch/master/graph/badge.svg)](https://codecov.io/gh/luisfisherjr/cmake-project-template)
 
 
 
