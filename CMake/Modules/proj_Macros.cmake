@@ -1,0 +1,5 @@
+macro(add_gtest TESTNAME ARGN)
+    add_executable(${TESTNAME} ${ARGN})
+    target_link_libraries(${TESTNAME} gtest gmock gtest_main)
+    add_test(${TESTNAME} ${TESTNAME})
+endmacro()

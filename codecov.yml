@@ -1,0 +1,4 @@
+ignore:
+  - "Test/.*" # can ignore folder and everything inside
+  - "Ext/.*" # can ignore folder and everything inside
+  - "CMake/.*" # can ignore folder and everything inside
