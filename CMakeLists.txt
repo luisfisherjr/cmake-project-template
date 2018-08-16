@@ -33,7 +33,9 @@ endif()
 add_subdirectory(Ext)
 # holds project library directories
 add_subdirectory(Libs)
-# holdes tests
+# holds executables
+add_subdirectory(Apps)
+# holds tests
 add_subdirectory(Test)
 
 

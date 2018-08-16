@@ -1,4 +1,4 @@
-project(SubtractAlt C)
+project(DoubleLinkedList C)
 
 # source directory
 set(SRC_DIR ${PROJECT_SOURCE_DIR}/source)
@@ -10,7 +10,6 @@ set(SRC_FILES
 
 # add additional linked libraries as required
 set(LINKED_LIBS
-        AddAlt
         )
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
