@@ -185,23 +185,30 @@ void* getDLL(int index, DoubleLinkedList *thisList) {
 // removes and destroys all nodes in thisList
 void clearDLL(DoubleLinkedList *thisList) {
 
-    linkDLL *headOfDLL = thisList->head;
-    linkDLL *current = thisList->head;
+    if (thisList->head) {
 
-    if (!headOfDLL) return;
+        linkDLL *current = thisList->head;
+        linkDLL *headOfDLL = thisList->head;
 
-    headOfDLL->previous->next = 0;
+        if (!headOfDLL) return;
 
-    // frees memory of linkDLL structs
-    while (current->next) {
+        headOfDLL->previous->next = 0;
 
-        current = current->next;
+        // frees memory of linkDLL structs
+        while (current->next) {
 
-        free(current->previous);
-        current->previous = 0;
+            current = current->next;
+
+            free(current->previous);
+            thisList->nodeCount--;
+        }
+
+        free(current);
+        thisList->head = NULL;
+        thisList->nodeCount--;
+
+
     }
-
-    free(current);
 }
 
 

@@ -24,6 +24,23 @@ void DoubleLinkedListTest::TearDown() {
     destroyDoubleLinkedList(doubleLinkedList);
 };
 
+
+TEST_F(DoubleLinkedListTest, SizeTest) {
+
+    EXPECT_EQ(0, doubleLinkedList->size(doubleLinkedList));
+
+    for (int i = 0; i < 4; i++) {
+
+        doubleLinkedList->push(&stringArray[i], doubleLinkedList);
+
+        EXPECT_EQ(i + 1, doubleLinkedList->size(doubleLinkedList));
+    }
+
+    doubleLinkedList->clear(doubleLinkedList);
+
+    EXPECT_EQ(0, doubleLinkedList->size(doubleLinkedList));
+}
+
 TEST_F(DoubleLinkedListTest, GetTest) {
 
 

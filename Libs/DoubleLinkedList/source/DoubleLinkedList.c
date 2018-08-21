@@ -12,6 +12,7 @@ void * newDoubleLinkedList(int (*comparator)(const void *, const void *)) {
     linkedList->nodeCount = 0;
 
     //*** list functions ***
+    linkedList->size = sizeDLL;
     linkedList->clear = clearDLL;
     linkedList->contains = containsDLL;
     linkedList->get = getDLL;
