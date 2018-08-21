@@ -3,7 +3,9 @@
 #include "DoubleLinkedListHelpers.h"
 
 
-
+// adds element as the last element of thisList
+// if no elements are present becomes head
+// returns 1 if added, 0 if not added
 int addLastDLL(const void *item, DoubleLinkedList *thisList) {
 
     linkDLL *headOfDLL  = thisList->head;
@@ -43,83 +45,104 @@ int addLastDLL(const void *item, DoubleLinkedList *thisList) {
     return 0;
 }
 
+// adds element as the new head of the list
+// returns 1 if added, 0 if not added
+// FIXME: commented out, not currently used...
+//int addFirstDLL(const void *item, DoubleLinkedList *thisList) {
+//
+//    int isAdded = addLastDLL(thisList, item);
+//
+//    if (isAdded) {
+//
+//        thisList->head = ((linkDLL*)thisList->head)->previous;
+//    }
+//
+//    return isAdded;
+//
+//}
 
-
-int addFirstDLL(const void *item, DoubleLinkedList *thisList) {
-
-    int isAdded = addLastDLL(thisList, item);
-
-    if (isAdded) {
-
-        thisList->head = ((linkDLL*)thisList->head)->previous;
-    }
-
-    return isAdded;
-
-}
-
-// removes and destroys last link in list before the head, returns item
+// removes and destroys last link in list before the head
+// returns item in removed node
 void* removeLast(DoubleLinkedList *thisList) {
 
-    if (thisList->nodeCount < 1) return NULL;
-
     void *item = NULL;
-    linkDLL *toRemove = thisList->head;
 
-    if (thisList->nodeCount > 1) {
+    if (thisList->nodeCount > 0) {
 
-        toRemove = toRemove->previous;
+        linkDLL *toRemove = thisList->head;
 
-        toRemove->previous->next = toRemove->next;
-        toRemove->next->previous = toRemove->previous;
+        if (thisList->nodeCount > 1) {
+
+            toRemove = toRemove->previous;
+
+            toRemove->previous->next = toRemove->next;
+            toRemove->next->previous = toRemove->previous;
+        }
+        else {
+
+            thisList->head = NULL;
+        }
+
+        thisList->nodeCount--;
+        item = toRemove->item;
+        free(toRemove);
     }
-    else {
-
-        thisList->head = NULL;
-    }
-
-    thisList->nodeCount--;
-    item = toRemove->item;
-    free(toRemove);
 
     return item;
 }
 
-// removes and destroys head, returns item
+// removes and destroys head of thisList
+// returns item in removed node
+// returns NULL if list is empty
 void* removeFirst(DoubleLinkedList *thisList) {
 
-    thisList->head = ((linkDLL*)thisList->head)->next;
+    if (thisList->head) {
+
+        thisList->head = ((linkDLL*)thisList->head)->next;
+    }
 
     return removeLast(thisList);
 }
 
+// returns the number of nodes in thisList
 int sizeDLL(DoubleLinkedList *thisList) {
     return thisList->nodeCount;
 }
 
+// iterate over list using comparator defined during creation of thisList
+// returns index going forward of found item
+// returns -1 if item is not found
 int containsDLL(const void * item, DoubleLinkedList *thisList) {
 
-    linkDLL *head = thisList->head;
-    linkDLL *current_node = head;
+    if (thisList->head) {
 
-    int index = 0;
+        linkDLL *head = thisList->head;
+        linkDLL *current_node = head;
+        int nodeCount = thisList->nodeCount;
 
-    do {
+        int index = 0;
 
-        if (thisList->comparator(item, current_node->item)) {
+        while (index < nodeCount) {
 
-            return index;
+            if (thisList->comparator(item, current_node->item)) {
+
+                return index;
+            }
+
+            current_node = current_node->next;
+            index++;
+
         }
-
-        current_node = current_node->next;
-        index++;
-
-    } while (current_node->next != head);
+    }
 
     return -1;
 }
 
+// returns item in node at specified index
+// returns NULL if out of range of thisList
 void* getDLL(int index, DoubleLinkedList *thisList) {
+
+    void *item = NULL;
 
     int nodeCount = thisList->nodeCount;
 
@@ -129,7 +152,7 @@ void* getDLL(int index, DoubleLinkedList *thisList) {
 
         int currentIndex = 0;
 
-        if (index < (nodeCount / 2)) {
+        if (index <= (nodeCount / 2)) {
 
             while (currentIndex < index) {
 
@@ -143,7 +166,7 @@ void* getDLL(int index, DoubleLinkedList *thisList) {
 
             currentIndex = nodeCount - index;
 
-            while (currentIndex >= 0) {
+            while (currentIndex > 0) {
 
                 current_node = current_node->previous;
                 currentIndex--;
@@ -152,14 +175,14 @@ void* getDLL(int index, DoubleLinkedList *thisList) {
 
         }
 
-        return current_node->item;
+        item =  current_node->item;
     }
 
     // out of range
-    return 0;
+    return item;
 }
 
-
+// removes and destroys all nodes in thisList
 void clearDLL(DoubleLinkedList *thisList) {
 
     linkDLL *headOfDLL = thisList->head;
@@ -180,6 +203,7 @@ void clearDLL(DoubleLinkedList *thisList) {
 
     free(current);
 }
+
 
 int pushDLL(const void * item, DoubleLinkedList *thisList) {
 

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 project(Tutorial VERSION 1.0 LANGUAGES C CXX)
 
+set (CMAKE_C_STANDARD 11)
+set (CMAKE_CXX_STANDARD 11)
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/CMake/Modules")
 
 include(proj_Macros)

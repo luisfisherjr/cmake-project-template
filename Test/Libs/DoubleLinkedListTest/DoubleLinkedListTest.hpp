@@ -22,7 +22,18 @@ protected:
     // ok to through exceptions from here if need be
     virtual void TearDown();
 
-    std::string stringArray[10];
+    std::string stringArray[10] {
+        "cat",
+        "hat",
+        "boo",
+        "zoo",
+        "feather",
+        "leather",
+        "cool",
+        "pool",
+        "hello",
+        "fellow"
+    };
 
     DoubleLinkedList *doubleLinkedList;
 };
