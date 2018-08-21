@@ -6,6 +6,7 @@ set(SRC_DIR ${PROJECT_SOURCE_DIR}/source)
 # add additional source files as required
 set(SRC_FILES
         ${SRC_DIR}/${PROJECT_NAME}
+        ${SRC_DIR}/${PROJECT_NAME}Helpers
         )
 
 # add additional linked libraries as required

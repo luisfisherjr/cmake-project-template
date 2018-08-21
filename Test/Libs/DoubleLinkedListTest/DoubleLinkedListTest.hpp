@@ -1,7 +1,7 @@
 #ifndef DOUBLELINKEDLIST_TEST_H
 
 #include "gtest/gtest.h"
-#include "Node.h"
+#include "DoubleLinkedList.h"
 
 #define DOUBLELINKEDLIST_TEST_H
 
@@ -24,7 +24,7 @@ protected:
 
     std::string stringArray[10];
 
-    linkDLL *head;
+    DoubleLinkedList *doubleLinkedList;
 };
 
 #endif //DOUBLELINKEDLIST_TEST_H
