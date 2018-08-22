@@ -10,8 +10,12 @@ void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, i
         case BUBBLE:
             bubbleSort(base, nItems, size, compare);
             break;
-            
+
         case INSERT:
+            insertSort(base, nItems, size, compare);
+            break;
+
+        case SELECT:
             insertSort(base, nItems, size, compare);
             break;
             
@@ -22,6 +26,9 @@ void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, i
         case QUICK:
             quickSort(base, nItems, size, compare);
             break;
-    }
 
+        case RADIX:
+            quickSort(base, nItems, size, compare);
+            break;
+    }
 }

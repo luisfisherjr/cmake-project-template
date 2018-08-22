@@ -16,9 +16,13 @@ void bubbleSort(void *base, size_t nItems, size_t size, int (*compare)(const voi
 
 void insertSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
+void selectSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
+
 void mergeSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
 void quickSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
+
+//void radixSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
 
 #ifdef __cplusplus

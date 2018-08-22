@@ -1,3 +1,4 @@
 add_subdirectory(AddAltTest)
 add_subdirectory(SubtractAltTest)
 add_subdirectory(DoubleLinkedListTest)
+add_subdirectory(SortsTest)

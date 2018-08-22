@@ -9,8 +9,7 @@ extern "C"
 
 #include <stddef.h>
 
-
-extern enum STRATEGY{INSERT, BUBBLE, QUICK, RADIX, MERGE};
+enum STRATEGY{BUBBLE, INSERT, SELECT,  MERGE, QUICK, RADIX};
 
 
 void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));

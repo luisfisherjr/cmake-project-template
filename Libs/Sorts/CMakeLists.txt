@@ -8,8 +8,10 @@ set(SRC_FILES
         ${SRC_DIR}/${PROJECT_NAME}
         ${SRC_DIR}/Bubble
         ${SRC_DIR}/Insert
+        ${SRC_DIR}/Select
         ${SRC_DIR}/Merge
         ${SRC_DIR}/Quick
+        ${SRC_DIR}/Radix
         )
 
 # add additional linked libraries as required
