@@ -1,8 +1,8 @@
 
 
-#ifndef DOUBLELINKEDLIST_HELPERS_H
+#ifndef DOUBLELINKEDLIST_HELPER_H
 
-#define DOUBLELINKEDLIST_HELPERS_H
+#define DOUBLELINKEDLIST_HELPER_H
 
 #ifdef __cplusplus
 extern "C"
@@ -55,4 +55,4 @@ void* peekQueueDLL(DoubleLinkedList *thisList);
 
 
 
-#endif //DOUBLELINKEDLIST_HELPERS_H
+#endif //DOUBLELINKEDLIST_HELPER_H

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 #include "DoubleLinkedList.h"
-#include "DoubleLinkedListHelpers.h"
+#include "DoubleLinkedListHelper.h"
 
 void * newDoubleLinkedList(int (*comparator)(const void *, const void *)) {
 

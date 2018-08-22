@@ -1,4 +1,4 @@
-project(DoubleLinkedList C)
+project(Sorts C)
 
 # source directory
 set(SRC_DIR ${PROJECT_SOURCE_DIR}/source)
@@ -6,7 +6,10 @@ set(SRC_DIR ${PROJECT_SOURCE_DIR}/source)
 # add additional source files as required
 set(SRC_FILES
         ${SRC_DIR}/${PROJECT_NAME}
-        ${SRC_DIR}/${PROJECT_NAME}Helper
+        ${SRC_DIR}/Bubble
+        ${SRC_DIR}/Insert
+        ${SRC_DIR}/Merge
+        ${SRC_DIR}/Quick
         )
 
 # add additional linked libraries as required

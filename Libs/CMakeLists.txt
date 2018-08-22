@@ -1,3 +1,4 @@
 add_subdirectory(AddAlt)
 add_subdirectory(SubtractAlt)
 add_subdirectory(DoubleLinkedList)
+add_subdirectory(Sorts)

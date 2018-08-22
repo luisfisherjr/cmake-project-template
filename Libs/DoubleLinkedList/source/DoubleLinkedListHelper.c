@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "DoubleLinkedListHelpers.h"
+#include "DoubleLinkedListHelper.h"
 
 
 // adds element as the last element of thisList
