@@ -154,10 +154,29 @@ TEST_F(SortsTest, MergeSortTest) {
     }
 }
 
-//TEST_F(SortsTest, QuickSortTest) {
+TEST_F(SortsTest, QuickSortTest) {
+
+    // compare primitive ints
+    sorts(QUICK, intsToOrder, LARGE_SIZE, sizeof(int), compareInt);
+
+    for (int i = 0; i < LARGE_SIZE; i++) {
+
+        EXPECT_EQ(expectedIntsOrder[i], intsToOrder[i]);
+    }
+
+    // compare cstrings
+    sorts(QUICK, cStringToOrder, LARGE_SIZE, sizeof(char*), compareString);
+
+    for (int i = 0; i < LARGE_SIZE; i++) {
+
+        EXPECT_EQ(expectedCStringOrder[i], cStringToOrder[i]);
+    }
+}
+
+//TEST_F(SortsTest, QuickStableSortTest) {
 //
 //    // compare primitive ints
-//    sorts(QUICK, intsToOrder, LARGE_SIZE, sizeof(int), compareInt);
+//    sorts(QUICK_STABLE, intsToOrder, LARGE_SIZE, sizeof(int), compareInt);
 //
 //    for (int i = 0; i < LARGE_SIZE; i++) {
 //
@@ -165,7 +184,7 @@ TEST_F(SortsTest, MergeSortTest) {
 //    }
 //
 //    // compare cstrings
-//    sorts(QUICK, cStringToOrder, LARGE_SIZE, sizeof(char*), compareString);
+//    sorts(QUICK_STABLE, cStringToOrder, LARGE_SIZE, sizeof(char*), compareString);
 //
 //    for (int i = 0; i < LARGE_SIZE; i++) {
 //

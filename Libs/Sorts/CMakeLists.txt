@@ -12,6 +12,7 @@ set(SRC_FILES
         ${SRC_DIR}/SelectStable
         ${SRC_DIR}/Merge
         ${SRC_DIR}/Quick
+        ${SRC_DIR}/QuickStable
         ${SRC_DIR}/Radix
         )
 

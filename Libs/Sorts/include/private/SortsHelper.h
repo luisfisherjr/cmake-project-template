@@ -10,6 +10,7 @@ extern "C"
 #endif
 
 #include <stddef.h>
+    
 void bubbleSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
 void insertSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
@@ -23,6 +24,8 @@ void mergeSort(void *base, size_t nItems, size_t size, int (*compare)(const void
 
 // WARNING possibly unstable
 void quickSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
+
+void quickSortStable(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
 //void radixSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
