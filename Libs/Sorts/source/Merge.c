@@ -114,4 +114,7 @@ void merge(void *base, size_t size, int l, int m, int r, int (*compare)(const vo
         rightIndex++;
         baseIndex++;
     }
+
+    free(leftBase_ptr);
+    free(rightBase_ptr);
 }

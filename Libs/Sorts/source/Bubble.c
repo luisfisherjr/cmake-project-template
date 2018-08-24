@@ -18,7 +18,6 @@ char *__a = (a_ptr), *__b = (b_ptr), __tmp;                         \
 
 void bubbleSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*)) {
 
-    char *base_ptr = base;
     char *a_ptr;
     char *b_ptr;
 
@@ -26,8 +25,8 @@ void bubbleSort(void *base, size_t nItems, size_t size, int (*compare)(const voi
 
         for (int j = 0; j < nItems - i - 1; j++) {
 
-            a_ptr = base_ptr + (j * size);
-            b_ptr = base_ptr + ((j + 1) * size);
+            a_ptr = base + (j * size);
+            b_ptr = base + ((j + 1) * size);
 
             if (compare(a_ptr, b_ptr) > 0) {
 

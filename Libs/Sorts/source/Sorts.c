@@ -15,6 +15,10 @@ void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, i
             selectSort(base, nItems, size, compare);
             break;
 
+        case SELECT_STABLE:
+            selectSortStable(base, nItems, size, compare);
+            break;
+
         case INSERT:
             insertSort(base, nItems, size, compare);
             break;

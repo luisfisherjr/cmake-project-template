@@ -9,6 +9,7 @@ set(SRC_FILES
         ${SRC_DIR}/Bubble
         ${SRC_DIR}/Insert
         ${SRC_DIR}/Select
+        ${SRC_DIR}/SelectStable
         ${SRC_DIR}/Merge
         ${SRC_DIR}/Quick
         ${SRC_DIR}/Radix

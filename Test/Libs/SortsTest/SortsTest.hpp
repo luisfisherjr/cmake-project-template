@@ -1,8 +1,11 @@
 #ifndef SORTS_TEST_H
 
 #include "gtest/gtest.h"
+#include <string>
 
 #define SORTS_TEST_H
+
+#define LARGE_SIZE 100
 
 class SortsTest: public ::testing::Test {
 
@@ -21,63 +24,13 @@ protected:
     // ok to through exceptions from here if need be
     virtual void TearDown();
 
-    char* stdStringsToOrder[10];
+    int givenIntsOrder[LARGE_SIZE];
+    int expectedIntsOrder[LARGE_SIZE];
+    int intsToOrder[LARGE_SIZE];
 
-    char* stdStringsGivenOrder [10] = {
-        "cat",
-        "hat",
-        "boo",
-        "zoo",
-        "feather",
-        "leather",
-        "cool",
-        "aARASDSXZCEDFSAWCEQ!XDSZVFZFECZEDZACasdaaxdadwdDSGSZVDSVZ",
-        "hello",
-        "fellow",
-    };
-
-    char* stdStringsExpectedOrder[10] {
-        "aARASDSXZCEDFSAWCEQ!XDSZVFZFECZEDZACasdaaxdadwdDSGSZVDSVZ",
-        "boo",
-        "cat",
-        "cool",
-        "feather",
-        "fellow",
-        "hat",
-        "hello",
-        "leather",
-        "zoo",
-    };
-
-    int intsToOrder[10];
-
-    int intsGivenOrder [10] = {
-        8,
-        6,
-        9,
-        0,
-        12,
-        -5,
-        7,
-        22,
-        12,
-        -1,
-    };
-
-    int intsExpectedOrder[10] {
-        -5,
-        -1,
-        0,
-        6,
-        7,
-        8,
-        9,
-        12,
-        12,
-        22,
-    };
-
-    int sizeOfArrays = 10;
+    char* givenCStringOrder[LARGE_SIZE];
+    char* expectedCStringOrder[LARGE_SIZE];
+    char* cStringToOrder[LARGE_SIZE];
 };
 
 #endif //SORTS_TEST_H
