@@ -10,8 +10,6 @@ extern "C"
 #endif
 
 #include <stddef.h>
-
-
 void bubbleSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
 void insertSort(void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));

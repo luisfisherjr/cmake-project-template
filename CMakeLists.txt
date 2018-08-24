@@ -36,8 +36,8 @@ endif()
 add_subdirectory(Ext)
 # holds project library directories
 add_subdirectory(Libs)
-# holds executables
-add_subdirectory(Apps)
+# used to test code before unit testing
+add_subdirectory(CodeTesting)
 # holds tests
 add_subdirectory(Test)
 

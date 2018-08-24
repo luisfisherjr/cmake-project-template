@@ -14,7 +14,6 @@ enum STRATEGY{BUBBLE, INSERT, SELECT,  MERGE, QUICK, RADIX};
 
 void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, int (*compare)(const void *, const void*));
 
-
 #ifdef __cplusplus
 }
 #endif // __cplusplus

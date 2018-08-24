@@ -11,11 +11,11 @@ void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, i
             bubbleSort(base, nItems, size, compare);
             break;
 
-        case INSERT:
-            insertSort(base, nItems, size, compare);
+        case SELECT:
+            selectSort(base, nItems, size, compare);
             break;
 
-        case SELECT:
+        case INSERT:
             insertSort(base, nItems, size, compare);
             break;
             

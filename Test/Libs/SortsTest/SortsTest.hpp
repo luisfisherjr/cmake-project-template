@@ -21,32 +21,60 @@ protected:
     // ok to through exceptions from here if need be
     virtual void TearDown();
 
-    std::string toOrder[10];
+    char* stdStringsToOrder[10];
 
-    std::string givenOrder [10] = {
-            "cat",
-            "hat",
-            "boo",
-            "zoo",
-            "feather",
-            "leather",
-            "cool",
-            "pool",
-            "hello",
-            "fellow",
+    char* stdStringsGivenOrder [10] = {
+        "cat",
+        "hat",
+        "boo",
+        "zoo",
+        "feather",
+        "leather",
+        "cool",
+        "aARASDSXZCEDFSAWCEQ!XDSZVFZFECZEDZACasdaaxdadwdDSGSZVDSVZ",
+        "hello",
+        "fellow",
     };
 
-    std::string expectedOrder[10] {
-            "boo",
-            "cat",
-            "cool",
-            "feather",
-            "fellow",
-            "hat",
-            "hello",
-            "leather",
-            "pool",
-            "zoo",
+    char* stdStringsExpectedOrder[10] {
+        "aARASDSXZCEDFSAWCEQ!XDSZVFZFECZEDZACasdaaxdadwdDSGSZVDSVZ",
+        "boo",
+        "cat",
+        "cool",
+        "feather",
+        "fellow",
+        "hat",
+        "hello",
+        "leather",
+        "zoo",
+    };
+
+    int intsToOrder[10];
+
+    int intsGivenOrder [10] = {
+        8,
+        6,
+        9,
+        0,
+        12,
+        -5,
+        7,
+        22,
+        12,
+        -1,
+    };
+
+    int intsExpectedOrder[10] {
+        -5,
+        -1,
+        0,
+        6,
+        7,
+        8,
+        9,
+        12,
+        12,
+        22,
     };
 
     int sizeOfArrays = 10;

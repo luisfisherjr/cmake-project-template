@@ -3,25 +3,24 @@
 #include "SortsTest.hpp"
 
 #include <string.h>
-#include <string>
-#include <cstddef>
 
 //using ::testing::Return;
+
+int compareString(const void* stringA, const void* stringB);
+int compareInt(const void* intA, const void* intB);
 
 SortsTest::SortsTest() {}
 
 SortsTest::~SortsTest() {};
 
-int stringEqual(const void* stringA, const void* stringB);
 
 void SortsTest::SetUp() {
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        toOrder[i] = givenOrder[i];
+        stdStringsToOrder[i] = stdStringsGivenOrder[i];
+        intsToOrder[i] = intsGivenOrder[i];
     }
-
-
 };
 
 void SortsTest::TearDown() {
@@ -30,72 +29,125 @@ void SortsTest::TearDown() {
 
 TEST_F(SortsTest, BubbleSortTest) {
 
-    sorts(BUBBLE, toOrder, sizeOfArrays, sizeof(std::string), stringEqual);
+    // sorts std::string objects
+    sorts(BUBBLE, stdStringsToOrder, sizeOfArrays, sizeof(char*), compareString);
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
     }
-}
 
-TEST_F(SortsTest, InsertSortTest) {
-
-    sorts(INSERT, toOrder, sizeOfArrays, sizeof(std::string), stringEqual);
+    // sorts int primitives
+    sorts(BUBBLE, intsToOrder, sizeOfArrays, sizeof(int), compareInt);
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+        EXPECT_EQ(intsExpectedOrder[i], intsToOrder[i]);
     }
 }
 
 TEST_F(SortsTest, SelectSortTest) {
 
-    sorts(SELECT, &toOrder, sizeOfArrays, sizeof(std::string), stringEqual);
+    // sorts std::string objects
+    sorts(SELECT, stdStringsToOrder, sizeOfArrays, sizeof(char*), compareString);
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
+    }
+
+    // sorts int primitives
+    sorts(SELECT, intsToOrder, sizeOfArrays, sizeof(int), compareInt);
+
+    for (int i = 0; i < sizeOfArrays; i++) {
+
+        EXPECT_EQ(intsExpectedOrder[i], intsToOrder[i]);
     }
 }
 
-TEST_F(SortsTest, MergeSortTest) {
+TEST_F(SortsTest, InsertSortTest) {
 
-    sorts(MERGE, &toOrder, sizeOfArrays, sizeof(std::string), stringEqual);
+    // sorts std::string objects
+    sorts(INSERT, stdStringsToOrder, sizeOfArrays, sizeof(char*), compareString);
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
+    }
+
+    // sorts int primitives
+    sorts(INSERT, intsToOrder, sizeOfArrays, sizeof(int), compareInt);
+
+    for (int i = 0; i < sizeOfArrays; i++) {
+
+        EXPECT_EQ(intsExpectedOrder[i], intsToOrder[i]);
+    }
+}
+
+
+TEST_F(SortsTest, MergeSortTest) {
+
+    // sorts std::string objects
+    sorts(MERGE, stdStringsToOrder, sizeOfArrays, sizeof(char*), compareString);
+
+    for (int i = 0; i < sizeOfArrays; i++) {
+
+        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
+    }
+
+    // sorts int primitives
+    sorts(MERGE, intsToOrder, sizeOfArrays, sizeof(int), compareInt);
+
+    for (int i = 0; i < sizeOfArrays; i++) {
+
+        EXPECT_EQ(intsExpectedOrder[i], intsToOrder[i]);
     }
 }
 
 TEST_F(SortsTest, QuickSortTest) {
 
-    sorts(QUICK, &toOrder, sizeOfArrays, sizeof(std::string), stringEqual);
+    // sorts std::string objects
+    sorts(QUICK, stdStringsToOrder, sizeOfArrays, sizeof(char*), compareString);
 
     for (int i = 0; i < sizeOfArrays; i++) {
 
-        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
+    }
+
+    // sorts int primitives
+    sorts(QUICK, intsToOrder, sizeOfArrays, sizeof(int), compareInt);
+
+    for (int i = 0; i < sizeOfArrays; i++) {
+
+        EXPECT_EQ(intsExpectedOrder[i], intsToOrder[i]);
     }
 }
 
 //TEST_F(SortsTest, RadixSortTest) {
 //
-//    sorts(RADIX, &toOrder, sizeOfArrays, sizeof(std::string), nullptr);
+//    sorts(RADIX, &stdStringsToOrder, sizeOfArrays, sizeof(std::string), nullptr);
 //
 //    for (int i = 0; i < sizeOfArrays; i++) {
 //
-//        EXPECT_EQ(expectedOrder[i], toOrder[i]);
+//        EXPECT_EQ(stdStringsExpectedOrder[i], stdStringsToOrder[i]);
 //    }
 //}
 
 
-int stringEqual(const void* stringA, const void* stringB) {
+int compareInt(const void* intA, const void* intB) {
 
-    std::string* a = (std::string*)stringA;
-    std::string* b = (std::string*)stringB;
+    int value =  *(int*)intA - *(int*)intB;
 
-    if (a->compare(*b) != 0) {
-        return 0;
-    }
-    return 1;
+    printf("\ncompare return: %d\n", value);
+
+    return value;
+}
+
+int compareString(const void* stringA, const void* stringB) {
+
+    int value =  strcmp(*((char**)stringA),*((char**)stringB));
+
+    printf("\ncompare return: %d\n", value);
+
+    return value;
 }
