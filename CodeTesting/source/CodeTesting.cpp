@@ -7,7 +7,7 @@
 
 #include "SortsHelper.h"
 
-#define SIZE 10000
+#define SIZE 10
 
 int compareString(const void* stringA, const void* stringB);
 void printStringArray(char *array[], int length);
@@ -20,13 +20,18 @@ void populateRandCString(char *s, int length);
 char* randomCString();
 
 
+int random20() {
+
+    return std::rand() % 20;
+}
+
 //currently used to test swap macro
 int main(int argc, char *argv[]) {
 
     int intToOder[SIZE];
     char* stringToOrder[SIZE];
 
-    std::generate(intToOder, intToOder + SIZE, std::rand);
+    std::generate(intToOder, intToOder + SIZE, random20);
     std::generate(stringToOrder, stringToOrder + SIZE, randomCString);
 
     int length = 6;
@@ -34,7 +39,7 @@ int main(int argc, char *argv[]) {
     std::cout << "\nbefore sort:" << std::endl;
     printIntArray(intToOder, SIZE);
 
-    selectSortStable(intToOder, SIZE, sizeof(int), compareInt);
+    quickSort(intToOder, SIZE, sizeof(int), compareInt);
 
     std::cout << "\n\nafter sort:" << std::endl;
     printIntArray(intToOder, SIZE);
@@ -43,7 +48,7 @@ int main(int argc, char *argv[]) {
     std::cout << "\n\nbefore sort:" << std::endl;
     printStringArray(stringToOrder, SIZE);
 
-    selectSortStable(stringToOrder, SIZE, sizeof(char*), compareString);
+    quickSort(stringToOrder, SIZE, sizeof(char*), compareString);
 
     std::cout << "\n\nafter sort:" << std::endl;
     printStringArray(stringToOrder, SIZE);

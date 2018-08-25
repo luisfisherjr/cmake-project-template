@@ -77,7 +77,7 @@ TEST_F(SortsTest, BubbleSortTest) {
 
 TEST_F(SortsTest, SelectSortTest) {
 
-    // WARNING this sort is not stable
+    // WARNING this sort is not stable sort
     // using explicit casting in EXPECT_EQ *(char*) for comparing strings
 
     // compare primitive ints
@@ -156,6 +156,9 @@ TEST_F(SortsTest, MergeSortTest) {
 
 TEST_F(SortsTest, QuickSortTest) {
 
+    // WARNING this sort is not stable sort
+    // using explicit casting in EXPECT_EQ *(char*) for comparing strings
+
     // compare primitive ints
     sorts(QUICK, intsToOrder, LARGE_SIZE, sizeof(int), compareInt);
 
@@ -169,7 +172,7 @@ TEST_F(SortsTest, QuickSortTest) {
 
     for (int i = 0; i < LARGE_SIZE; i++) {
 
-        EXPECT_EQ(expectedCStringOrder[i], cStringToOrder[i]);
+        EXPECT_EQ(*(char*)expectedCStringOrder[i], *(char*)cStringToOrder[i]);
     }
 }
 
