@@ -10,12 +10,12 @@
 
 //using ::testing::Return;
 
-int compareString(const void* stringA, const void* stringB);
-int compareInt(const void* intA, const void* intB);
+static int compareString(const void* stringA, const void* stringB);
+static int compareInt(const void* intA, const void* intB);
 
 
-void populateRandCString(char *s, int length);
-char* randomCString();
+static void populateRandCString(char *s, int length);
+static char* randomCString();
 
 SortsTest::SortsTest() {
 
@@ -196,27 +196,7 @@ TEST_F(SortsTest, QuickStableSortTest) {
     }
 }
 
-//TEST_F(SortsTest, RadixSortTest) {
-//
-//    // sorts CStrings
-//    sorts(RADIX, givenCStringOrder, LARGE_SIZE, sizeof(char*), compareString);
-//
-//    for (int i = 0; i < LARGE_SIZE; i++) {
-//
-//        EXPECT_EQ(expectedCStringOrder[i], givenCStringOrder[i]);
-//    }
-//
-//    // sorts primitive int
-//    sorts(RADIX, givenIntsOrder, LARGE_SIZE, sizeof(int), compareInt);
-//
-//    for (int i = 0; i < LARGE_SIZE; i++) {
-//
-//        EXPECT_EQ(expectedIntsOrder[i], givenIntsOrder[i]);
-//    }
-//}
-
-
-int compareInt(const void* intA, const void* intB) {
+static int compareInt(const void* intA, const void* intB) {
 
     int a = *(int*)intA;
     int b = *(int*)intB;
@@ -232,7 +212,7 @@ int compareInt(const void* intA, const void* intB) {
     }
 }
 
-int compareString(const void* stringA, const void* stringB) {
+static int compareString(const void* stringA, const void* stringB) {
 
     char *a = *((char**)stringA);
     char *b = *((char**)stringB);
@@ -243,7 +223,7 @@ int compareString(const void* stringA, const void* stringB) {
 
 
 
-void populateRandCString(char *s, const int length) {
+static void populateRandCString(char *s, const int length) {
     static const char alphanum[] =
             "0123456789"
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -256,7 +236,7 @@ void populateRandCString(char *s, const int length) {
     s[length] = 0;
 }
 
-char* randomCString() {
+static char* randomCString() {
 
     int minLength = 1;
     int maxLength = 100;

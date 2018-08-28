@@ -34,9 +34,5 @@ void sorts(enum STRATEGY sortStrategy, void *base, size_t nItems, size_t size, i
         case QUICK_STABLE:
             quickSortStable(base, nItems, size, compare);
             break;
-
-        case RADIX:
-            quickSort(base, nItems, size, compare);
-            break;
     }
 }
