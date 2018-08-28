@@ -9,20 +9,20 @@
 
 #define SIZE 10
 
-int compareString(const void* stringA, const void* stringB);
+static inline int compareString(const void* stringA, const void* stringB);
 void printStringArray(char *array[], int length);
 
 
-int compareInt(const void* intA, const void* intB);
+static inline int compareInt(const void* intA, const void* intB);
 void printIntArray(int *array, int length);
 
 void populateRandCString(char *s, int length);
 char* randomCString();
 
 
-int random20() {
+int randomN() {
 
-    return std::rand() % 20;
+    return std::rand() % 5;
 }
 
 //currently used to test swap macro
@@ -31,15 +31,16 @@ int main(int argc, char *argv[]) {
     int intToOder[SIZE];
     char* stringToOrder[SIZE];
 
-    std::generate(intToOder, intToOder + SIZE, random20);
+    std::generate(intToOder, intToOder + SIZE, randomN);
     std::generate(stringToOrder, stringToOrder + SIZE, randomCString);
 
     int length = 6;
 
     std::cout << "\nbefore sort:" << std::endl;
     printIntArray(intToOder, SIZE);
+    std::cout << std::endl;
 
-    quickSort(intToOder, SIZE, sizeof(int), compareInt);
+    quickSortStable(intToOder, SIZE, sizeof(int), compareInt);
 
     std::cout << "\n\nafter sort:" << std::endl;
     printIntArray(intToOder, SIZE);
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]) {
     std::cout << "\n\nbefore sort:" << std::endl;
     printStringArray(stringToOrder, SIZE);
 
-    quickSort(stringToOrder, SIZE, sizeof(char*), compareString);
+    quickSortStable(stringToOrder, SIZE, sizeof(char*), compareString);
 
     std::cout << "\n\nafter sort:" << std::endl;
     printStringArray(stringToOrder, SIZE);
@@ -61,7 +62,7 @@ int main(int argc, char *argv[]) {
 }
 
 
-int compareInt(const void* intA, const void* intB) {
+static inline int compareInt(const void* intA, const void* intB) {
 
     int a = *(int*)intA;
     int b = *(int*)intB;
@@ -97,7 +98,7 @@ void printIntArray(int *array, int length) {
     }
 }
 
-int compareString(const void* stringA, const void* stringB) {
+static inline int compareString(const void* stringA, const void* stringB) {
 
     int value =  std::strcmp(*((char**)stringA),*((char**)stringB));
 
