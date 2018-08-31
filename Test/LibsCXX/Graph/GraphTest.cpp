@@ -4,33 +4,35 @@
 
 //using ::testing::Return;
 
-GraphSearchTest::GraphSearchTest() {};
+GraphSearchTest::GraphSearchTest() {
+    graphFactory = new GraphFactory();
+};
 
-GraphSearchTest::~GraphSearchTest() {};
+GraphSearchTest::~GraphSearchTest() {
+    delete graphFactory;
+    allGraphs.clear();
+};
 
 void GraphSearchTest::SetUp() {
 
-//    doubleLinkedList = (DoubleLinkedList*) newDoubleLinkedList(stringEqual);
-};
 
+};
 void GraphSearchTest::TearDown() {
 
 //    destroyDoubleLinkedList(doubleLinkedList);
 };
 
 
-TEST_F(GraphSearchTest, TestNode) {
+TEST_F(GraphSearchTest, TestDefualtGraphConstructors) {
 
-//    EXPECT_EQ(0, doubleLinkedList->size(doubleLinkedList));
-//
-//    for (int i = 0; i < 4; i++) {
-//
-//        doubleLinkedList->push(&stringArray[i], doubleLinkedList);
-//
-//        EXPECT_EQ(i + 1, doubleLinkedList->size(doubleLinkedList));
-//    }
-//
-//    doubleLinkedList->clear(doubleLinkedList);
+    graph = graphFactory->createGraph(ADJACENCY_LIST);
+    allGraphs.push_back(graph);
 
-    EXPECT_EQ(0, 0);
+    graph = graphFactory->createGraph(ADJACENCY_MATRIX);
+    allGraphs.push_back(graph);
+
+    graph = graphFactory->createGraph(OBJECT_ORIENTED);
+    allGraphs.push_back(graph);
+
+    EXPECT_TRUE(allGraphs.size() == 3);
 };
