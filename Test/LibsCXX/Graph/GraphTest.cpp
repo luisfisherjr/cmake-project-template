@@ -36,3 +36,30 @@ TEST_F(GraphSearchTest, TestDefualtGraphConstructors) {
 
     EXPECT_TRUE(allGraphs.size() == 3);
 };
+
+TEST_F(GraphSearchTest, TestFileGraphConstructors) {
+
+    std::ifstream infile(graphFile1);
+
+    graph = graphFactory->createGraph(ADJACENCY_LIST, infile);
+    allGraphs.push_back(graph);
+//    std::cerr << "end of " << graphFile1 << " reached..." << std::endl;
+
+    infile.clear() ;
+    infile.seekg(0, infile.beg) ;
+
+    graph = graphFactory->createGraph(ADJACENCY_MATRIX, infile);
+    allGraphs.push_back(graph);
+//    std::cerr << "end of " << graphFile1 << " reached..." << std::endl;
+
+    infile.clear() ;
+    infile.seekg(0, infile.beg) ;
+
+    graph = graphFactory->createGraph(OBJECT_ORIENTED, infile);
+    allGraphs.push_back(graph);
+//    std::cerr << "end of " << graphFile1 << " reached..." << std::endl;
+
+    infile.close();
+
+    EXPECT_TRUE(allGraphs.size() == 3);
+};
