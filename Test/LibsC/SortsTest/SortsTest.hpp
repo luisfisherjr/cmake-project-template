@@ -5,7 +5,7 @@
 
 #define SORTS_TEST_H
 
-#define LARGE_SIZE 100000
+#define LARGE_SIZE 10000
 
 class SortsTest: public ::testing::Test {
 
