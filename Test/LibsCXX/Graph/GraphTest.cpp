@@ -39,7 +39,10 @@ TEST_F(GraphSearchTest, TestDefualtGraphConstructors) {
 
 TEST_F(GraphSearchTest, TestFileGraphConstructors) {
 
+//    std::ifstream infile(graphFile1);
     std::ifstream infile(graphFile1);
+
+//    std::cout << std::endl << graphFile1 << std::endl;
 
     graph = graphFactory->createGraph(ADJACENCY_LIST, infile);
     allGraphs.push_back(graph);

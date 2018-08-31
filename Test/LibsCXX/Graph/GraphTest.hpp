@@ -28,8 +28,8 @@ protected:
     Graph *graph;
     GraphFactory *graphFactory;
 
-    std::string graphFile1 = "../Resources/graph-1.txt";
-    std::string graphFile2 = "../Resources/graph-2.txt";
+    std::string graphFile1 = "../../../Resources/graph-1.txt";
+    std::string graphFile2 = "../../../Resources/graph-2.txt";
 
 };
 

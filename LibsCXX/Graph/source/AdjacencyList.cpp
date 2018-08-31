@@ -1,5 +1,6 @@
 #include <string>
-#include <sstream>
+//#include <sstream>
+#include <iostream>
 
 #include "AdjacencyList.hpp"
 #include "StringData.hpp"
@@ -95,6 +96,8 @@ void AdjacencyList::readFile(std::ifstream &infile) {
     std::string lineSegment;
 
     while (std::getline(infile, line)) {
+
+        std::cout << "in loop..." << std::endl;
 
         if (isFirstLine) {
 

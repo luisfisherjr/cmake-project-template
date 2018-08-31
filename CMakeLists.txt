@@ -38,11 +38,14 @@ add_subdirectory(Ext)
 add_subdirectory(LibsC)
 # holds C++ project library directories
 add_subdirectory(LibsCXX)
-# used to test code before unit testing
-add_subdirectory(CodeDebugging)
 # holds tests
 add_subdirectory(Test)
+# used to debugg code outside of testing
+add_subdirectory(CodeDebugging)
 
+# copy RESOURCE_DIR and contents to build folder
+set(RESOURCE_DIR ${PROJECT_SOURCE_DIR}/Resources)
+file(COPY ${RESOURCE_DIR} DESTINATION ${CMAKE_BINARY_DIR})
 
 
 
