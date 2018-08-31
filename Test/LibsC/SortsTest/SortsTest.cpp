@@ -196,6 +196,30 @@ TEST_F(SortsTest, QuickStableSortTest) {
     }
 }
 
+TEST_F(SortsTest, ComparisonQSortTest) {
+
+    // compare primitive ints
+
+    std::qsort(intsToOrder, LARGE_SIZE, sizeof(int), compareInt);
+
+    for (int i = 0; i < LARGE_SIZE; i++) {
+
+        EXPECT_EQ(expectedIntsOrder[i], intsToOrder[i]);
+    }
+
+    // compare cstrings
+    std::qsort(cStringToOrder, LARGE_SIZE, sizeof(char*), compareString);
+
+    for (int i = 0; i < LARGE_SIZE; i++) {
+
+        EXPECT_EQ(expectedCStringOrder[i], cStringToOrder[i]);
+    }
+}
+
+
+
+
+
 static int compareInt(const void* intA, const void* intB) {
 
     int a = *(int*)intA;

@@ -1,19 +1,10 @@
-project(CodeTesting CXX)
+project(GraphTest CXX)
 
-# source directory
-set(SRC_DIR ${PROJECT_SOURCE_DIR}/source)
-
-# add additional source files as required
-set(SRC_FILES
-        ${SRC_DIR}/${PROJECT_NAME}.cpp
-        )
-
-# create executuable
-add_executable(${PROJECT_NAME} ${SRC_FILES})
+add_gtest(${PROJECT_NAME} ${PROJECT_NAME})
 
 # add additional linked libraries as required
 set(LINKED_LIBS
-        Sorts
+        Graph
         )
 
 # adds linked libs
@@ -24,5 +15,5 @@ foreach(LIB ${LINKED_LIBS})
 
     target_include_directories(${PROJECT_NAME} PRIVATE
             ${${LIB}_SOURCE_DIR}/include/private
-            )
+        )
 endforeach()

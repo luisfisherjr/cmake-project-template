@@ -1,1 +1,2 @@
-add_subdirectory(Libs)
+add_subdirectory(LibsC)
+add_subdirectory(LibsCXX)

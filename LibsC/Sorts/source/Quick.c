@@ -13,6 +13,15 @@ char *__a = (a_ptr), *__b = (b_ptr), __tmp;                         \
         *__b = __tmp;                                               \
     }} while(0)
 
+// used to swap memory addresses
+// bytes in a and b, number of bytes swapped is determined by size
+#define REPLACE(a_ptr, b_ptr, size)                                 \
+do {                                                                \
+    char *__a = (a_ptr), *__b = (b_ptr), __tmp;                     \
+    for (size_t __size = (size); __size; __size--, __a++, __b++){   \
+        *__a = *__b;                                                \
+    }} while(0)
+
 
 static int partition(void *base, size_t size, int start, int end, int (*compare)(const void *, const void*));
 

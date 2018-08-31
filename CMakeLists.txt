@@ -34,10 +34,12 @@ endif()
 
 # holds git modules
 add_subdirectory(Ext)
-# holds project library directories
-add_subdirectory(Libs)
+# holds C project library directories
+add_subdirectory(LibsC)
+# holds C++ project library directories
+add_subdirectory(LibsCXX)
 # used to test code before unit testing
-add_subdirectory(CodeTesting)
+add_subdirectory(CodeDebugging)
 # holds tests
 add_subdirectory(Test)
 
