@@ -20,9 +20,11 @@ This is a C/C++ cmake project template using Google Test, Travis CI and Codecov
 
 ### To Get Coverage (w/ Travis & Codecov)
 
-* fork this project
+* clone this project and add it as your own repository
 * Sign up for [Travis CI](https://travis-ci.org/) add fork of this project
 * Sign up for [Codecov](https://coveralls.io/)
+* Change the links in the tags to match your name and your project:
+  - luisfisherjr/cmake-project-template -> new-owner-name/new-project-name
 
 ### Possible Changes
 
